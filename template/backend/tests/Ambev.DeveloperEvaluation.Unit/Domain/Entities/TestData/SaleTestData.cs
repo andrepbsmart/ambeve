@@ -3,10 +3,7 @@ using Bogus;
 
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Rules;
-using Bogus.DataSets;
-using NSubstitute.ReceivedExtensions;
-using System.Data;
-using Xunit.Abstractions;
+
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData
 {
@@ -59,7 +56,7 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData
         {
             return new Faker<Sale>()
                 .RuleFor(s => s.SaleNumber, f => f.Random.Int(1, 9999))
-                .RuleFor(s => s.Date, f => f.Date.Past())
+                .RuleFor(s => s.Date, f => DateTime.Today)
                 .RuleFor(s => s.CustomerID, f => f.Random.Guid().ToString())
                 .RuleFor(s => s.CustomerName, f => f.Name.FullName())
                 .RuleFor(s => s.BranchID, f => f.Random.Guid().ToString())

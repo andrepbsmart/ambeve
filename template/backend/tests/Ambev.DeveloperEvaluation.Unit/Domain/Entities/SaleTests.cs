@@ -1,5 +1,4 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Rules;
-using Ambev.DeveloperEvaluation.Domain.Validation;
 using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using System;
 using Xunit;

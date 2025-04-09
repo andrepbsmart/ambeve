@@ -8,8 +8,6 @@ public class SaleValidator : AbstractValidator<Sale>
 {
     public SaleValidator()
     {
-        //RuleFor(user => user.Email).SetValidator(new EmailValidator());
-
         RuleFor(sale => sale.SaleNumber)
             .GreaterThan(0)
             .WithMessage("The sale number must be greater than zero.");
@@ -25,7 +23,7 @@ public class SaleValidator : AbstractValidator<Sale>
             .WithMessage("Customer name cannot be empty.");
 
         RuleFor(sale => sale.Date)
-            .Must(date => date.Date != DateTime.Today)
+            .Must(date => date.Date == DateTime.Today)
             .WithMessage("The sale date cannot be different from today.");
 
         RuleFor(sale => sale.BranchID)

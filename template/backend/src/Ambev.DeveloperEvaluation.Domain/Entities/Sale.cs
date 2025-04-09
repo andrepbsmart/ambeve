@@ -24,6 +24,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 
         public void AddItem(ItemSale item)
         {
+            item.SetSale(this);
             _items.Add(item);
         }
 

@@ -11,6 +11,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     {
         private readonly IDiscountPolicy _discountPolicy;
 
+        public Guid SaleID { get; set; }
         public Guid ProductID { get; set; }
         public string ProductName { get; set; }
         public int Quantity { get; set; }
@@ -23,6 +24,14 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
                 Discount = _discountPolicy.CalculateDiscount(Quantity, UnitPrice);
                 return (UnitPrice * Quantity) - Discount;
             }
+        }
+
+        public Sale Sale { get; private set; }
+
+        public void SetSale(Sale sale)
+        {
+            Sale = sale;
+            SaleID = sale.Id;
         }
 
         public ItemSale(IDiscountPolicy discountPolicy)
